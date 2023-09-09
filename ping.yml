@@ -1,5 +1,7 @@
-- name: Update and upgrade apt packages
-  become: true
-  apt:
-    upgrade: yes
-    update_cache: yes
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Remove old packages
+    ansible.builtin.apt:
+      autoremove: yes
